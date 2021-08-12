@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros passos com DOM</title>
+    <style>
+        body {
+            background-color: rgb(96, 145, 202);
+            color: white;
+            font: normal 18pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos com DOM e usando Live Server em vez de Watch in Chrome.</h1>
+    <p>Aqui vai o resultado</p>
+    <div id="msg" >Clique em mim</div>
+    <script>
+        var corpo = window.document.body // var corpo recebe a tag body do Html
+        var p1 = window.document.getElementsByTagName('p')[0] // var p1 recebe a Tag de nome 'p', o primeiro 'p' do body.Os colchetes indicam qual o 'p' específico, a contagem inicia em zero. Se eu não indicar [], todos os 'p's serão adicionados.
+        window.document.write('Está escrito assim: ' + p1.innerText) // escreve a var p1 na tela
+        corpo.style.background = 'black' // define o style da var corpo para fundo black.
+        p1.style.color = 'pink' // define o style da var p1 para fonte pink.
+        var d = window.document.getElementById('msg')
+        d.style.background = 'green'
+        // d.innerText = 'Estou aguardando... '
+        
+    </script>
+</body>
+</html>
