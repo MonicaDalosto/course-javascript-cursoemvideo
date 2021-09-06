@@ -1,6 +1,7 @@
 var txtNumero = document.getElementById('txt_numero')
 var listagem = document.querySelector('select#listagem')
 var resultado = document.querySelector('div#resultado')
+var clearButton = document.getElementById('clearButton');
 var valores = []
 
 // Essa function vai validar se o valor digitado está entre 1 e 100:
@@ -38,6 +39,8 @@ function adicionar() {
     }
     txtNumero.value = '' // Limpar a caixa de entrada ao final da execução da function adicionar()
     txtNumero.focus() // Colocar o cursor na caixa de entrada ao final da execução da function adicionar()
+
+    clearButton.style.display = null;
 }
 
 
@@ -53,12 +56,14 @@ function analisar() {
         // Usei uma repetição para identificar as três variáveis acima:
         // Poderia ter utilizado a forma simplificada: for (var contadorValor in valores)
         for (var contadorValor = 0; contadorValor < valores.length; contadorValor++) {
-            somaTotal += valores[contadorValor]
-            if (valores[contadorValor] < menorValor) {
-                menorValor = valores[contadorValor]
+            var valorNaPosicao = valores[contadorValor]
+        //for (var valorNaPosicao of valores) { // valorNaPosicao é equivalente à: let valorNaPosicao = valor[contadorValor]
+            somaTotal += valorNaPosicao
+            if (valorNaPosicao < menorValor) {
+                menorValor = valorNaPosicao
             }
-            if (valores[contadorValor] > maiorValor) {
-                maiorValor = valores[contadorValor]  
+            if (valorNaPosicao > maiorValor) {
+                maiorValor = valorNaPosicao  
             }
         }
         var mediaSimples = somaTotal / valores.length
@@ -68,9 +73,15 @@ function analisar() {
             <p>O menor valor informado foi ${menorValor}.</p>
             <p>O maior valor informado foi ${maiorValor}.</p>
             <p>A soma dos valores digitados é igual a ${somaTotal}.</p>
-            <p>A média dos valores digitados é ${mediaSimples}</p>`
+            <p>A média dos valores digitados é ${mediaSimples.toFixed(2)}</p>`
     }
     txtNumero.focus()
+}
+
+
+
+function limpar() {
+    window.location.reload();
 }
 
 
